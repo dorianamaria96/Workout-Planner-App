@@ -1,0 +1,26 @@
+rsa:
+  public-key: classpath:certificates/public.pem
+  private-key: classpath:certificates/private.pem
+spring:
+  datasource:
+    username: ${PSQL_USERNAME}
+    url: jdbc:postgresql://localhost:5432/fitness_app
+    password: ${PSQL_PASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: 'true'
+        format_sql: validate
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: create-drop
+server:
+  error:
+    include-message: always
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
