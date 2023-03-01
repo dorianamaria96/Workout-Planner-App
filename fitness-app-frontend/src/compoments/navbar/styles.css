@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+.header {
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 150px;
+  padding-left: 170px;
+  padding-right: 170px;
+  background: rgba(219, 109, 109, 0.28);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.2px);
+  -webkit-backdrop-filter: blur(4.2px);
+  border: 0, 5px solid rgba(255, 255, 255, 0.34);
+}
+
+.logo {
+  max-width: 200px;
+}
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.navMenu a {
+  color: #f0e9ef;
+  text-decoration: none;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: #fa7762;
+}
+
+.register-button {
+  padding: 15px 30px 15px 30px;
+  background: rgba(59, 9, 34, 0.82);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.9px);
+  -webkit-backdrop-filter: blur(7.9px);
+  border: 1px solid rgba(59, 9, 34, 0.45);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.register-button:hover {
+  background-color: rgb(33, 4, 4);
+}
