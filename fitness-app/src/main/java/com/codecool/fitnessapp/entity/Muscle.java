@@ -16,10 +16,6 @@ public class Muscle {
     @GeneratedValue
     private Long id;
     private String name;
-//    @ManyToOne
-////    @JoinColumn(name = "exercise_id")
-//    private Exercise exercise;
-
     public Muscle(String name) {
         this.name = name;
     }
