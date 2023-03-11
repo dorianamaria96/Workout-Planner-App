@@ -1,17 +1,55 @@
-.buttons {
+.categories {
     display: flex;
     flex-direction: column;
+    margin: 0 400px 0 400px 0;
 }
 
-.exercise {
-    background: rgba(219, 109, 109, 0.28);
-    border-radius: 16px;
+.category {
+    background: rgba(255, 203, 203, 0.609);
+    border-radius: 50px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 25px;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(42, 7, 7);
     cursor: pointer;
     margin: 20px;
+}
+
+
+.filters {
+    background: rgba(239, 182, 182, 0.28);
+    border-radius: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    font-size: 17px;
+    margin: 20px;
+
+}
+
+.filter {
+    background: rgba(30, 11, 30, 0.193);
+    background: linear-gradient(150deg, rgba(30,11,30,1) 48%, rgb(73, 19, 16) 100%);
+    border-radius: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    font-size: 17px;
+    font-weight: bolder;
+    cursor: pointer;
+    margin: 20px;
+    color: rgb(229, 226, 226);
+}
+
+.filter-text {
+    font-size: 25px;
+    text-align: center;
 }

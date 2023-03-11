@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: space-between;
   min-height: 150px;
-  padding-left: 170px;
-  padding-right: 170px;
+  padding-left: 140px;
+  padding-right: 140px;
   background: rgba(219, 109, 109, 0.28);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.2px);
@@ -28,7 +28,7 @@
   text-decoration: none;
   font-size: 1.4em;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
   display: inline-block;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -52,4 +52,20 @@
 
 .register-button:hover {
   background-color: rgb(33, 4, 4);
+}
+
+.user-button  {
+  padding: 15px 30px 15px 30px;
+  background: rgba(59, 9, 34, 0.82);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.9px);
+  -webkit-backdrop-filter: blur(7.9px);
+  border: 1px solid rgba(59, 9, 34, 0.45);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: #f0e9ef;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  font-weight: 600;
 }

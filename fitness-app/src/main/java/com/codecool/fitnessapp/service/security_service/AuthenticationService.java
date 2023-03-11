@@ -5,8 +5,12 @@ import com.codecool.fitnessapp.entity.user.User;
 import com.codecool.fitnessapp.repository.UserRepository;
 import com.codecool.fitnessapp.security.dto.RegisterRequest;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class AuthenticationService {
@@ -22,19 +26,30 @@ public class AuthenticationService {
         this.userRepository = userRepository;
     }
 
-    public User register(RegisterRequest request) {
-        var user = User.builder()
-                .firstname(request.getFirstname())
-                .lastname(request.getLastname())
-                .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
-                .build();
-        return userRepository.save(user);
+    public String register(RegisterRequest request) {
+        if (userRepository.findByEmail(request.getEmail()).isEmpty()){
+            var user = User.builder()
+                    .firstname(request.getFirstname())
+                    .lastname(request.getLastname())
+                    .email(request.getEmail())
+                    .password(passwordEncoder.encode(request.getPassword()))
+                    .role(Role.USER)
+                    .build();
+            userRepository.save(user);
+            return "Success!";
+        } else {
+            return "Try again! It seems that the email you are using is already taken.";
+        }
+
     }
 
     public String login(Authentication authentication) {
         return jwtService.generateToken(authentication);
     }
 
+    public String getFirstNameOfLoggedInUser() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByEmail(auth.getName()).orElseThrow(() -> new UsernameNotFoundException("No user is logged in."));
+        return user.getFirstname();
+    }
 }

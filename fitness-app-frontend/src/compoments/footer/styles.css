@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #cfd2d6;
+    color: azure;
 }
 
 footer {
@@ -18,7 +18,6 @@ footer {
     border: 0, 5px solid rgba(255, 255, 255, 0.34);
 }
 
-/*content*/
 .footer {
     display: block;
     align-items: center;

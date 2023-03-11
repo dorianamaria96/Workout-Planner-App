@@ -5,10 +5,9 @@ import com.codecool.fitnessapp.security.dto.RegisterRequest;
 import com.codecool.fitnessapp.service.security_service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/authentication")
@@ -18,7 +17,7 @@ public class AuthenticationEndpoint {
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public User register(@RequestBody  RegisterRequest request) {
+    public String register(@RequestBody  RegisterRequest request) {
         return authenticationService.register(request);
     }
 
@@ -27,4 +26,8 @@ public class AuthenticationEndpoint {
         return authenticationService.login(authentication);
     }
 
+    @GetMapping("/username")
+    public String getFirstNameOfLoggedInUser() {
+        return authenticationService.getFirstNameOfLoggedInUser();
+    }
 }

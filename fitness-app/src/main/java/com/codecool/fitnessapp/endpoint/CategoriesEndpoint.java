@@ -1,11 +1,11 @@
 package com.codecool.fitnessapp.endpoint;
 
+import com.codecool.fitnessapp.service.dto.Filter;
 import com.codecool.fitnessapp.service.ApiCallFilter;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.codecool.fitnessapp.service.ApiCallService;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Set;
 
 @RestController
@@ -13,9 +13,11 @@ import java.util.Set;
 public class CategoriesEndpoint {
 
     private final ApiCallFilter apiCallFilter;
+    private final ApiCallService apiCallService;
 
-    public CategoriesEndpoint(ApiCallFilter apiCallFilter) {
+    public CategoriesEndpoint(ApiCallFilter apiCallFilter, ApiCallService apiCallService) {
         this.apiCallFilter = apiCallFilter;
+        this.apiCallService = apiCallService;
     }
 
     @GetMapping
@@ -26,5 +28,15 @@ public class CategoriesEndpoint {
     @GetMapping("/{filter}")
     public Set<String> getFilterOptions(@PathVariable String filter) {
         return apiCallFilter.getFilterOptions(filter);
+    }
+
+    @PostMapping("/chosenFilter")
+    public String getChosenFilter(@RequestBody Filter filter) throws IOException {
+        return apiCallService.getExercisesForFilter(filter);
+    }
+
+    @GetMapping("/{name}")
+    public String getExerciseByName(@PathVariable String name) throws IOException {
+        return apiCallService.getExerciseByName(name);
     }
 }

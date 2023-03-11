@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Category from './Category';
 import './styles.css'
 
 
 export default function Categories() {
     const [categories, setCategories] = useState<string[]>();
-    const [filters, setFilters] = useState<string[]>();
 
     useEffect(() => {
         fetch('http://localhost:8080/categories')
@@ -15,24 +15,14 @@ export default function Categories() {
             .catch((error) => console.error(error));
     }, []);
 
-
-    function handleClick(key: string) {
-        fetch(`http://localhost:8080/categories/${key}`)
-            .then((response) => response.json())
-            .then((data: string[]) => {
-                console.log(data)
-            })
-            .catch((error) => console.error(error));
-    }
-
     return (
         <div>
-            <div>Filter exercises by:</div>
-            <div className='buttons'>
+            <div className='filter-text'>Filter exercises by:</div>
+            
                 {categories?.map((category) => (
-                    <button onClick={() => handleClick(category)} className='exercise' key={category}>{category}</button>
+                    <Category category={category} key={category}/>
                 ))}
-            </div>
+       
         </div>
     );
 }
