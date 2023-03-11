@@ -1,12 +1,12 @@
 package com.codecool.fitnessapp.service;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.*;
 import java.net.HttpURLConnection;
+import java.net.URL;
 
 @Service
 public class ApiCallService {
