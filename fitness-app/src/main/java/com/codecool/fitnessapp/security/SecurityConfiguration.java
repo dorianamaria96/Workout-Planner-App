@@ -1,7 +1,7 @@
 package com.codecool.fitnessapp.security;
 
 import com.codecool.fitnessapp.repository.UserRepository;
-import com.codecool.fitnessapp.service.security_service.RsaKeyProperties;
+import com.codecool.fitnessapp.service.records.RsaKeyProperties;
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -43,6 +42,8 @@ public class SecurityConfiguration {
                 .cors(cors -> corsConfigurationSource())
                 .authorizeHttpRequests(authorization -> {
                     authorization.requestMatchers("/authentication/register").permitAll();
+                    authorization.requestMatchers("/categories").permitAll();
+                    authorization.requestMatchers("/categories/**").permitAll();
                     authorization.anyRequest().authenticated();
                 })
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)

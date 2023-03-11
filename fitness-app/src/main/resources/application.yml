@@ -23,4 +23,6 @@ server:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
-
+exercises:
+  api-path: https://api.api-ninjas.com/v1/exercises
+  api-key: 6CfUdEan1AkDYMoYPfybRA==jlm4cnVWW8emXOjk

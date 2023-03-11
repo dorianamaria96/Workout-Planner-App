@@ -22,7 +22,7 @@ export default function LoginForm() {
                             <div className="btn-layer"></div>
                             <input type="submit" value="Login" />
                         </div>
-                        <div className="signup-link">Not a member? <a href="">Signup now</a></div>
+                        <div className="signup-link">Not a member? <a href="/register">Signup now</a></div>
                     </form>
                     
                 </div>

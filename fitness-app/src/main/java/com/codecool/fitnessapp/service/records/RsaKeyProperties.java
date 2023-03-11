@@ -1,4 +1,4 @@
-package com.codecool.fitnessapp.service.security_service;
+package com.codecool.fitnessapp.service.records;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

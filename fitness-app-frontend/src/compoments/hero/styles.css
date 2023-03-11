@@ -5,6 +5,30 @@
     max-width: 1160px;
 }
 
+.wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    align-items: center;
+}
+
+.left-div {
+    margin-top: -150px;
+    width: 50%;
+    padding-left: 40px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    justify-items: start;
+}
+
+.right-div {
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    justify-content: flex-end;
+}
+
 .hero-image {
     min-height: 500px;
     max-height: 700px;
@@ -21,33 +45,11 @@
 }
 
 .hero-text {
+    padding-top: 20px;
+    margin-left: 15px;
     font-family: 'Montserrat';
     color: #f0e9ef;
     font-size: 25px;
     font-weight: 200;
     display: inline-block;
-}
-
-
-.wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 200px;
-}
-
-
-.left-div {
-    width: 50%;
-    padding-left: 40px;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    justify-items: start;
-}
-
-.right-div {
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-    justify-content: flex-end;
 }
