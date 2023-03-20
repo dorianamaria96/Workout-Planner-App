@@ -35,8 +35,8 @@ public class CategoriesEndpoint {
         return apiCallService.getExercisesForFilter(filter);
     }
 
-    @GetMapping("/{name}")
-    public String getExerciseByName(@PathVariable String name) throws IOException {
-        return apiCallService.getExerciseByName(name);
-    }
+//    @GetMapping("/{name}")
+//    public String getExerciseByName(@PathVariable String name) throws IOException {
+//        return apiCallService.getExerciseByName(name);
+//    }
 }

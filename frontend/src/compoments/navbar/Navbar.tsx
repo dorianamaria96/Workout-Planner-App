@@ -31,7 +31,7 @@ export default function Navbar() {
 
         {userFirstname ? (
           <>
-          <button className="user-button">Hello, {user}</button>
+          <a href='/profile' className="user-button">Hello, {user}</a>
           <a onClick={logout}>Logout</a>
         </>
           
