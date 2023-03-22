@@ -44,6 +44,8 @@ public class SecurityConfiguration {
                     authorization.requestMatchers("/authentication/register").permitAll();
                     authorization.requestMatchers("/categories").permitAll();
                     authorization.requestMatchers("/categories/**").permitAll();
+                    authorization.requestMatchers("/profile/**").permitAll();
+                    authorization.requestMatchers("/profile").permitAll();
                     authorization.anyRequest().authenticated();
                 })
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)

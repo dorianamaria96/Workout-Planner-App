@@ -16,7 +16,6 @@ public class Image {
     @Id
     @GeneratedValue
     private Long id;
-
     private String fileName;
     private String fileType;
     @Lob

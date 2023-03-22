@@ -18,9 +18,7 @@ public class Profile {
     @GeneratedValue
     private Long id;
     @OneToOne
-    @JoinColumn(name = "image_image_id")
     private Image image;
     @OneToOne
-    @JoinColumn(name = "users")
     User user;
 }
