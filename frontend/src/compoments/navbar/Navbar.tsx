@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <header className="header">
       <div className="logo">
-        <img src={'/media/logo_simple.png'} className="logo" alt="Logo" />
+        <img src={'/media/while_logo_weights.png'} className="logo" alt="Logo" />
       </div>
       <nav className="navMenu">
         <a href="/homepage">Home</a>
@@ -31,7 +31,8 @@ export default function Navbar() {
 
         {userFirstname ? (
           <>
-          <a href='/profile' className="user-button">Hello, {user}</a>
+          <button className="upload-button button-hero" > <a href='/profile' >Hello, {user}</a></button>
+          
           <a onClick={logout}>Logout</a>
         </>
           
