@@ -26,9 +26,9 @@
 .navMenu a {
   color: #f0e9ef;
   text-decoration: none;
-  font-size: 1.4em;
+  font-size: 1.2em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   display: inline-block;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -54,18 +54,39 @@
   background-color: rgb(33, 4, 4);
 }
 
-.user-button  {
-  padding: 15px 30px 15px 30px;
-  background: rgba(59, 9, 34, 0.82);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.9px);
-  -webkit-backdrop-filter: blur(7.9px);
-  border: 1px solid rgba(59, 9, 34, 0.45);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  color: #f0e9ef;
-  font-size: 1.4em;
-  text-transform: uppercase;
-  font-weight: 600;
+
+.user-button {
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 75px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.user-button:hover {
+  background-position: 100% 0;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.user-button:focus {
+  outline: none;
+}
+
+.user-button.button-hero {
+  background-image: linear-gradient(to right,
+          #341113,
+          #f15e64,
+          #5c1718,
+          #e2373f);
+  box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
 }

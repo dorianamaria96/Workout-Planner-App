@@ -1,5 +1,6 @@
 package com.codecool.fitnessapp.entity;
 
+import com.codecool.fitnessapp.entity.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,9 +22,13 @@ public class Image {
     @Lob
     private byte[] data;
 
-    public Image(String fileName, String fileType, byte[] data) {
+    @OneToOne
+    User user;
+
+    public Image(String fileName, String fileType, byte[] data, User user) {
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;
+        this.user = user;
     }
 }

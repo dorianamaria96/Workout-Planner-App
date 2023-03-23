@@ -1,63 +1,15 @@
-import { useState, ChangeEvent } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 import './styles.css'
 
 export default function Profile() {
 
-    const [uploadedImage, setUploadedImage] = useState<File>()
-
-    function handleImageUpload(event: ChangeEvent<HTMLInputElement>) {
-        const file = event.target.files?.[0];
-        if (!file) return;
-        const reader = new FileReader();
-
-        // reader.onload = (event) => {
-        //     const result = event.target?.result;
-        //     if (!result) return;
-        //     const byteArray = new Uint8Array(
-        //         typeof result === "string" ?
-        //             new TextEncoder().encode(result) :
-        //             result
-        //     );
-    
-            
-            
-        // };
-        if (file.size > 1048576) {
-            alert("File is too big!")
-        }
-        
-        reader.readAsArrayBuffer(file);
-        setUploadedImage(file);
+    const imageObjectResult = {
+        fileName: '',
+        fileType: '',
+        data: ''
     }
 
-    function uploadImage() {
-        console.log("FILE ", uploadedImage)
-        const formData = new FormData();
-        if (uploadedImage) {
-            formData.append('name', 'File Upload');
-            formData.append('data', uploadedImage);
-        }
-        
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                authorization: 'Bearer ' + localStorage.getItem('token')
-            },
-            body: formData
-        }
-        console.log("REQUEST FK OPTIONS ", requestOptions)
-
-        fetch('http://localhost:8080/profile/image', requestOptions)
-        .then(res => res.json())
-        .then(res => {
-            console.log(res);                   
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
-
-    const reguestOptionsImage = {
+    const reguestOptionsGet = {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -65,46 +17,90 @@ export default function Profile() {
         }
     }
 
-    const imageObjectResult = {
-        fileName: '',
-        fileType: '',
-        data: ''
-    }
+    const [uploadedImage, setUploadedImage] = useState<File>()
     const [image, setImage] = useState(imageObjectResult)
-    const [imageData, setImageData] = useState<string>()
+    const [imageExists, setImageExists] = useState<boolean>()
+
+    useEffect(() => {
+
+        fetch('http://localhost:8080/profile/image/find-if-exists', reguestOptionsGet)
+            .then(data => data.json())
+            .then(data => {
+                setImageExists(data)
+                if (data) {
+                    retrieveImage()
+                }
+            })
+            .catch(error => console.log(error))
+    }, [])
+
+
+    function handleImageUpload(event: ChangeEvent<HTMLInputElement>) {
+        const file = event.target.files?.[0];
+        if (!file) return;
+
+        if (file.size > 1048576) {
+            alert("File is too big!")
+        }
+        setUploadedImage(file);
+    }
+
+    function uploadImage() {
+        const formData = new FormData();
+        if (uploadedImage) {
+            formData.append('name', 'File Upload');
+            formData.append('data', uploadedImage);
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                authorization: 'Bearer ' + localStorage.getItem('token')
+            },
+            body: formData
+        }
+
+        fetch('http://localhost:8080/profile/image', requestOptions)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                retrieveImage();
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
 
     function retrieveImage() {
-        fetch('http://localhost:8080/profile/image/2', reguestOptionsImage)
+        fetch('http://localhost:8080/profile/image', reguestOptionsGet)
             .then(data => data.json())
-            .then(data => 
+            .then(data =>
                 setImage(data)
-                )
-            .catch(error => error) 
+            )
+            .catch(error => error)
     }
 
-    function showImage() {
-        retrieveImage()
-        console.log(window.atob(image.data))
-        console.log(image.data)
-        setImageData(`data:${image.fileType};base64,${image.data}`)
 
-    }
-    
 
     return (
-        <div className="profile">This is the Profile Page
+        <div className="profile">
+            
+            <div className="profile-title">Profile Page</div>
+
+            <>
+                {
+                    imageExists
+                    ? 
+                    <div className="profile-image" style={{backgroundImage: `url(data:${image.fileType};base64,${image.data})`}}></div>
+                    :
+                    <div className="profile-image" style={{backgroundImage: `url("/media/Portrait_Placeholder.png")`}}></div>
+                }
+            </>
 
             <input type="file" multiple accept="image/*" onChange={handleImageUpload} />
 
-            <button className="upload-button" onClick={uploadImage}>Upload</button>
-
-            <button onClick={showImage} > Show Image </button>
-
-            <>
-            {
-                image && <img className="profile-image" src={imageData} alt={image.fileName}/>
-            }
-            </>
+            <button className="upload-button button-hero" onClick={uploadImage}>Upload</button>
 
         </div>
     );

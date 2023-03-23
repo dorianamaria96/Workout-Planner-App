@@ -11,7 +11,7 @@ import ProfilePage from './pages/profile/ProfilePage';
 function App() {
   return (
     <BrowserRouter>
-    <Navbar/>
+    <Navbar />
       <Routes>
         <Route>
           <Route index element={<HomePage />} />
