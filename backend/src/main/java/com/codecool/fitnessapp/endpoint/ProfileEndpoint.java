@@ -2,7 +2,6 @@ package com.codecool.fitnessapp.endpoint;
 
 import com.codecool.fitnessapp.entity.Image;
 import com.codecool.fitnessapp.entity.user.User;
-import com.codecool.fitnessapp.repository.ImageRepository;
 import com.codecool.fitnessapp.repository.UserRepository;
 import com.codecool.fitnessapp.service.ImageService;
 import com.codecool.fitnessapp.service.ProfileService;
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/profile")
@@ -24,25 +21,18 @@ public class ProfileEndpoint {
     private final ProfileService profileService;
 
     private final ImageService imageService;
-    private UserRepository userRepository;
-    private final ImageRepository imageRepository;
+    private final UserRepository userRepository;
 
-    public ProfileEndpoint(ProfileService profileService, ImageService imageService, UserRepository userRepository,
-                           ImageRepository imageRepository) {
+    public ProfileEndpoint(ProfileService profileService, ImageService imageService, UserRepository userRepository) {
         this.profileService = profileService;
         this.imageService = imageService;
         this.userRepository = userRepository;
-        this.imageRepository = imageRepository;
     }
 
     @PostMapping("/image")
     public Image saveImage(@RequestParam("data") MultipartFile image) throws IOException, ImageNotFoundException {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByEmail(auth.getName()).orElseThrow(() -> new UsernameNotFoundException("No user is logged in."));
-        if (imageService.checkIfImageExists()) {
-            Image existingImage = imageService.getImage();
-            imageRepository.delete(existingImage);
-        }
         Image imageToSave = new Image(image.getOriginalFilename(), image.getContentType(), image.getBytes(), user);
         return imageService.saveImage(imageToSave);
     }

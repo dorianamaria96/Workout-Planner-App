@@ -20,6 +20,10 @@ export default function Navbar() {
     navigate('/homepage')
   }
 
+  function navigateToProfilePage() {
+    navigate('/profile')
+  }
+
   return (
     <header className="header">
       <div className="logo">
@@ -31,7 +35,7 @@ export default function Navbar() {
 
         {userFirstname ? (
           <>
-          <button className="user-button button-hero" > <a href='/profile' >Hello, {user}</a></button>
+          <button className="user-button button-hero" onClick={navigateToProfilePage}> Hello, {user}</button>
           
           <a onClick={logout}>Logout</a>
         </>

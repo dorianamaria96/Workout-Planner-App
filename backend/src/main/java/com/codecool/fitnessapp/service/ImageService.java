@@ -22,7 +22,11 @@ public class ImageService {
         this.userRepository = userRepository;
     }
 
-    public Image saveImage(Image image) {
+    public Image saveImage(Image image) throws ImageNotFoundException {
+        if (checkIfImageExists()) {
+            Image existingImage = getImage();
+            imageRepository.delete(existingImage);
+        }
         return imageRepository.save(image);
     }
 

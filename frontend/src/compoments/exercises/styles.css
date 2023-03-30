@@ -1,0 +1,93 @@
+.exercises-holder { 
+    margin: 20px;
+    padding: 30px;
+    background: rgba(65, 27, 27, 0.49);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.1px);
+    -webkit-backdrop-filter: blur(5.1px);
+    border: 2px solid rgba(30, 6, 6, 0.29);
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-label-exercise {
+    font-size: 15px;
+    color: beige;
+    opacity: 0.2;
+}
+
+.standard-style-exercise {
+    display: inline-block;
+    padding: 15px;
+    margin-bottom: 10px;
+    width: fit-content;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+.exercise-name {
+    font-size: 30px;
+    text-transform: uppercase;
+    background: rgba(115, 0, 48, 0.67);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(115, 0, 48, 0.68);
+}
+
+.exercise-muscle {
+    font-size: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(115, 0, 48, 0.68);
+}
+
+.exercise-type {
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(115, 0, 48, 0.68);
+}
+
+.exercise-difficulty {
+    margin-left: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 3px;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(115, 0, 48, 0.339);
+}
+
+.exercise-equipment {
+    background: rgba(189, 73, 103, 0.67);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(189, 73, 103, 0.68);
+}
+
+.exercise-instructions {
+    background: rgba(115, 0, 48, 0.238);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(115, 0, 48, 0.68);
+    line-height: 28px;
+    font-weight: 300;
+}
+
+.show-hide-text {
+    cursor: pointer;
+    font-weight: 300;
+    color: brown;
+}

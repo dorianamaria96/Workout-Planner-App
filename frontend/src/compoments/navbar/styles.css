@@ -56,19 +56,22 @@
 
 
 .user-button {
-    width: 160px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    height: 75px;
-    text-align: center;
-    border: none;
-    background-size: 300% 100%;
-    border-radius: 50px;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+
+  width: 160px;
+  font-weight: 600;
+  cursor: pointer;
+  height: 75px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  color: #f0e9ef;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  display: inline-block;
 }
 
 .user-button:hover {
@@ -84,9 +87,9 @@
 
 .user-button.button-hero {
   background-image: linear-gradient(to right,
-          #341113,
-          #f15e64,
-          #5c1718,
-          #e2373f);
+      #341113,
+      #f15e64,
+      #5c1718,
+      #e2373f);
   box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
 }

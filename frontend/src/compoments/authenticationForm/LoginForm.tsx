@@ -68,7 +68,6 @@ export default function LoginForm() {
             .then((response) => response.text())
             .then((data: string) => {
                 localStorage.setItem('logged_in_user', data)
-                console.log("MY NAME", data)
             })
             .catch((error) => console.error(error));
     }
