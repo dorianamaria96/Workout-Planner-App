@@ -2,10 +2,7 @@ package com.codecool.fitnessapp.service;
 
 import com.codecool.fitnessapp.repository.ExerciseRepository;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.security.test.context.support.WithMockUser;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 

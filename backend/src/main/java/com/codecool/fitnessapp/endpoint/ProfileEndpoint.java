@@ -19,7 +19,6 @@ import java.io.IOException;
 public class ProfileEndpoint {
 
     private final ProfileService profileService;
-
     private final ImageService imageService;
     private final UserRepository userRepository;
 
@@ -44,7 +43,6 @@ public class ProfileEndpoint {
 
     @GetMapping("/image/find-if-exists")
     public boolean checkIfImageExists() {
-        System.out.println("imageService = " + imageService.checkIfImageExists());
         return imageService.checkIfImageExists();
     }
 }

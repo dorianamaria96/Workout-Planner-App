@@ -22,20 +22,20 @@ public class Initialization {
         return args -> {
             User user = new User("Doriana", "Maria", "dori@gmail.at", passwordEncoder.encode("123"));
             userRepository.save(user);
+//
+//            Muscle biceps = new Muscle("Biceps");
+//            Muscle triceps = new Muscle("Triceps");
+//            Muscle glutes = new Muscle("Glutes");
+//            Muscle hamstrings = new Muscle("Hamstrings");
+//            Muscle quadriceps = new Muscle("Quadriceps");
+//            muscleRepository.saveAll(List.of(biceps, triceps, glutes, hamstrings, quadriceps));
 
-            Muscle biceps = new Muscle("Biceps");
-            Muscle triceps = new Muscle("Triceps");
-            Muscle glutes = new Muscle("Glutes");
-            Muscle hamstrings = new Muscle("Hamstrings");
-            Muscle quadriceps = new Muscle("Quadriceps");
-            muscleRepository.saveAll(List.of(biceps, triceps, glutes, hamstrings, quadriceps));
 
-
-            Exercise squat = new Exercise("Squat", "Description", Set.of(hamstrings, quadriceps, glutes));
-            Exercise backExtension = new Exercise("Back Extension Glutes Focused", "Description", Set.of(hamstrings, glutes));
-            Exercise bicepCurls = new Exercise("Bicep Curls", "Description", Set.of(biceps));
-
-            exerciseRepository.saveAll(List.of(squat, bicepCurls, backExtension));
+//            Exercise squat = new Exercise("Squat", "Description", Set.of(hamstrings, quadriceps, glutes));
+//            Exercise backExtension = new Exercise("Back Extension Glutes Focused", "Description", Set.of(hamstrings, glutes));
+//            Exercise bicepCurls = new Exercise("Bicep Curls", "Description", Set.of(biceps));
+//
+//            exerciseRepository.saveAll(List.of(squat, bicepCurls, backExtension));
 
         };
     }

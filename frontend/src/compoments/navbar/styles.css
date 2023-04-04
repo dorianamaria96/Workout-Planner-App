@@ -54,11 +54,9 @@
   background-color: rgb(33, 4, 4);
 }
 
-
 .user-button {
-
-  width: 160px;
   font-weight: 600;
+  padding: 0 20px 0 20px;
   cursor: pointer;
   height: 75px;
   text-align: center;

@@ -1,6 +1,8 @@
 package com.codecool.fitnessapp.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +18,7 @@ public class Muscle {
     @GeneratedValue
     private Long id;
     private String name;
+
     public Muscle(String name) {
         this.name = name;
     }

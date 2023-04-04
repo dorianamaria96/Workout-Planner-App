@@ -1,4 +1,4 @@
-.exercises-holder { 
+.exercises-holder {
     margin: 20px;
     padding: 30px;
     background: rgba(65, 27, 27, 0.49);
@@ -9,6 +9,12 @@
     border: 2px solid rgba(30, 6, 6, 0.29);
     display: flex;
     flex-direction: column;
+}
+
+.exercise-title-holder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .custom-label-exercise {
@@ -39,11 +45,7 @@
 
 .exercise-muscle {
     font-size: 20px;
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(7.9px);
-    -webkit-backdrop-filter: blur(7.9px);
-    border: 1px solid rgba(115, 0, 48, 0.68);
+    padding: 20px;
 }
 
 .exercise-type {
@@ -56,6 +58,7 @@
 
 .exercise-difficulty {
     margin-left: 20px;
+    margin-right: 20px;
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 3px;
@@ -67,7 +70,10 @@
 }
 
 .exercise-equipment {
-    background: rgba(189, 73, 103, 0.67);
+    display: flex;
+    align-items: center;
+    background: rgba(31, 1, 9, 0.67);
+    font-size: 20px;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7.9px);
@@ -90,4 +96,30 @@
     cursor: pointer;
     font-weight: 300;
     color: brown;
+}
+
+.muscle-container {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    color: #444;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: -6px -6px 14px rgba(97, 59, 59, 0.7),
+        -6px -6px 10px rgba(103, 41, 41, 0.5),
+        6px 6px 8px rgba(31, 7, 7, 0.075),
+        6px 6px 10px rgba(16, 1, 1, 0.75);
+}
+
+.muscle-image {
+    max-width: 30px;
+    margin-left: 20px;
+}
+
+.barbell-image {
+    max-width: 30px;
+    margin-right: 10px;
 }

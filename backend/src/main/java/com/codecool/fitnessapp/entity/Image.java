@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Image {
-
     @Id
     @GeneratedValue
     private Long id;
@@ -21,7 +20,6 @@ public class Image {
     private String fileType;
     @Lob
     private byte[] data;
-
     @OneToOne
     User user;
 

@@ -1,15 +1,11 @@
 package com.codecool.fitnessapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -17,12 +13,15 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Exercise {
+public class Routine {
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
-    private Integer numberOfSets;
-    private Integer numberOfReps;
-    private Double weightUsed;
+
+    private String notes;
+
+    @ManyToMany
+    private Set<Workout> workouts;
 }

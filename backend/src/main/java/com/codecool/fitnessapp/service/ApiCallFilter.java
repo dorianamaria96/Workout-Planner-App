@@ -17,6 +17,7 @@ public class ApiCallFilter {
     public Map<String, Set<String>> getFilters() {
         return filters;
     }
+
     public void setFilters(Map<String, Set<String>> filters) {
         this.filters = filters;
     }

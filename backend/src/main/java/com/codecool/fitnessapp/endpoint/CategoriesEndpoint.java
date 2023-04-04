@@ -1,13 +1,14 @@
 package com.codecool.fitnessapp.endpoint;
 
-import com.codecool.fitnessapp.service.dto.ExerciseStructure;
-import com.codecool.fitnessapp.service.dto.Filter;
 import com.codecool.fitnessapp.service.ApiCallFilter;
 import com.codecool.fitnessapp.service.ApiCallService;
-import org.springframework.web.bind.annotation.*;
+import com.codecool.fitnessapp.service.dto.Filter;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -38,8 +39,4 @@ public class CategoriesEndpoint {
         return apiCallService.getExercisesForFilter(filter);
     }
 
-//    @GetMapping("/{name}")
-//    public String getExerciseByName(@PathVariable String name) throws IOException {
-//        return apiCallService.getExerciseByName(name);
-//    }
 }

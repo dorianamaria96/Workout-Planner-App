@@ -11,8 +11,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @WebMvcTest(ExerciseEndpoint.class)
 class ExerciseEndpointTest {
 
@@ -23,6 +21,7 @@ class ExerciseEndpointTest {
     MockMvc mockMvc;
 
     String url = "/exercises";
+
     @Test
     @WithMockUser
     void getAllExercises() throws Exception {

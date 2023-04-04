@@ -1,6 +1,5 @@
 package com.codecool.fitnessapp.endpoint;
 
-import com.codecool.fitnessapp.service.ExerciseService;
 import com.codecool.fitnessapp.service.MuscleService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -11,8 +10,6 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @WebMvcTest(MuscleEndpoint.class)
 class MuscleEndpointTest {
@@ -27,7 +24,7 @@ class MuscleEndpointTest {
 
     @Test
     @WithMockUser
-    void getAllMuscles () throws Exception {
+    void getAllMuscles() throws Exception {
         String path = url + "/all";
 
         mockMvc.perform(MockMvcRequestBuilders.get(path))

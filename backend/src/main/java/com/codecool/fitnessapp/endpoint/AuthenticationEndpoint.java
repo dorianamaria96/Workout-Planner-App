@@ -1,12 +1,9 @@
 package com.codecool.fitnessapp.endpoint;
 
-import com.codecool.fitnessapp.entity.user.User;
 import com.codecool.fitnessapp.security.dto.RegisterRequest;
 import com.codecool.fitnessapp.service.security_service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,7 +14,7 @@ public class AuthenticationEndpoint {
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public String register(@RequestBody  RegisterRequest request) {
+    public String register(@RequestBody RegisterRequest request) {
         return authenticationService.register(request);
     }
 

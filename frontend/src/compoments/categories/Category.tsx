@@ -1,19 +1,10 @@
 import './styles.css'
 import { useState } from 'react';
 import Filter from './Filters';
-import Exercises from '../exercises/Exercises'
 import Exercise from '../exercises/Exercise'
 
 interface CategoryProps {
     category: string;
-}
-
-// interface ExercisesProps {
-//     exercises: Exercise[];
-// }
-
-interface ExerciseObject {
-    exercise: ExerciseDetails;
 }
 
 interface ExerciseDetails {
@@ -26,7 +17,6 @@ interface ExerciseDetails {
 }
 
 export default function Category({ category }: CategoryProps) {
-    const exerciseObjectStructure = ['name', 'type', 'muscle', 'equipment', 'difficulty', 'instructions']
 
     const [filters, setFilters] = useState<string[]>();
     const [isHidden, setIsHidden] = useState<boolean>(true);
@@ -39,7 +29,7 @@ export default function Category({ category }: CategoryProps) {
             .then((data: string[]) => {
                 setFilters(data)
                 setIsHidden(!isHidden)
-                if (isHiddenExercises == false && isHidden == true) {
+                if (isHiddenExercises == false) {
                     setIsHiddenExercises(true)
                 }
             })
@@ -52,7 +42,6 @@ export default function Category({ category }: CategoryProps) {
             value: filter
         }
 
-
         fetch(`http://localhost:8080/categories/chosenFilter/${chosenFilter.parameter}/${chosenFilter.value}`, {
             method: 'GET',
             headers: {
@@ -64,29 +53,12 @@ export default function Category({ category }: CategoryProps) {
                 setIsHiddenExercises(false)
                 setExercises(data)
             })
+            .catch((error) => console.log(error))
     }
 
-    const exerciseBeispiel = {
-        name: "name",
-        type: "type",
-        muscle: "muscle",
-        equipment: "equipment",
-        difficulty: "difficutly",
-        instructions: "instructions",
-    }
-
-
-    console.log("EXERCISES ", exerciseBeispiel)
-    exercises?.map((exercise: ExerciseDetails) => {
-        console.log("HERE U HAVE THE EXERCISESE; Bro", exercise.name)
-    })
-    console.log("IS HIDDEN OR NOT ", isHiddenExercises)
-    //exercises?.map((exercise) => console.log("SINGLE EXERCISES", exercise.exercise.instructions))
     return (
         <div className='categories'>
             <>
-                {/* <Exercise exercise={exerciseBeispiel}></Exercise> */}
-
                 <button onClick={() => handleClick(category)} className='category' key={category}>{category.replace(/\b\w/g, c => c.toUpperCase())}</button>
                 {!isHidden && (
                     <div className='filters'>
@@ -94,19 +66,13 @@ export default function Category({ category }: CategoryProps) {
                             <Filter onClick={() => handleFilter(filter)} key={filter} filter={filter} />
                         ))}
 
-
                     </div>
                 )}
 
                 {!isHiddenExercises && (
-
-
-
-                    exercises.map((exercise) => (
-                        <Exercise key={exercise.name} exercise={exercise} />
+                    exercises.map((exercise, index) => (
+                        <Exercise key={index} exercise={exercise} />
                     ))
-
-
                 )}
             </>
         </div>

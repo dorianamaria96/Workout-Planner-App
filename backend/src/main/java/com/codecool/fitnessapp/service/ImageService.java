@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ImageService {
-
     private final ImageRepository imageRepository;
     private UserRepository userRepository;
 
