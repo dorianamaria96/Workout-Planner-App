@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
@@ -24,9 +25,14 @@ public class Profile {
 
     private String lastname;
 
-    private Double weight;
+    private double weight;
 
     private double height;
+
+    private LocalDateTime birthday;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @OneToMany
     private Set<Routine> routines;
@@ -36,4 +42,16 @@ public class Profile {
     private Set<Goal> goals;
     @OneToOne
     User user;
+
+    public Profile(String firstname, String lastname, double weight, double height, LocalDateTime birthday, Gender gender, Set<Routine> routines, Set<Goal> goals, User user) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.weight = weight;
+        this.height = height;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.routines = routines;
+        this.goals = goals;
+        this.user = user;
+    }
 }

@@ -21,6 +21,7 @@ public class ImageService {
         this.userRepository = userRepository;
     }
 
+    @Transactional
     public Image saveImage(Image image) throws ImageNotFoundException {
         if (checkIfImageExists()) {
             Image existingImage = getImage();
@@ -36,6 +37,7 @@ public class ImageService {
         return imageRepository.findByUser(user).orElseThrow(() -> new ImageNotFoundException("No image found."));
     }
 
+    @Transactional
     public boolean checkIfImageExists() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByEmail(auth.getName()).orElseThrow(() -> new UsernameNotFoundException("No user is logged in."));

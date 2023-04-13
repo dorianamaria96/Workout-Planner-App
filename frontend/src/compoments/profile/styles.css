@@ -5,6 +5,77 @@
     padding: 20px;
 }
 
+.profile-holder {
+    display: flex;
+    flex-direction: row;
+    background: rgba(255, 203, 203, 0.354);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(42, 7, 7);
+    margin: 20px;
+}
+
+.left-profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-profile-section {
+
+}
+
+
+.profile-title {
+    font-size: 40px;
+    padding: 20px 0 20px 0;
+    font-weight: 500;
+}
+
+.profile-section {
+    background: rgb(30,11,30);
+    background: linear-gradient(120deg, rgba(30, 11, 30, 0.906) 38%, rgba(116, 36, 32, 0.815) 100%);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(42, 7, 7);
+    margin: 10px 10px 10px 40px;
+}
+
+.personal-information-holder {
+    min-width: 400px;
+    font-weight: 300;
+    margin-left: 20px;
+}
+
+.information-label {
+    font-size: 18px;
+    color: rgb(168, 121, 121);
+}
+
+.information {
+    padding: 0 0 10px 0;
+    margin: 10px 0 10px 0;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform:uppercase;
+}
+
+
 input[type=file] {
     max-width: 100%;
     color: #444;
@@ -76,9 +147,4 @@ input[type=file]::file-selector-button:hover {
             #5c1718,
             #e2373f);
     box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
-}
-
-.profile-title {
-    font-size: 30px;
-    padding: 20px 0 20px 0;
 }

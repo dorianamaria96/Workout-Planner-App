@@ -17,8 +17,6 @@ interface ExerciseDetails {
 
 export default function Exercise({ exercise }: Exercise) {
 
-    //console.log('exercise prop:', exercise.name);
-
     const [isReadMore, setIsReadMore] = useState(true);
     const toggleReadMore = () => {
         setIsReadMore(!isReadMore);

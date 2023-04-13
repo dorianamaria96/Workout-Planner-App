@@ -43,11 +43,16 @@ export default function RegisterForm() {
         fetch('http://localhost:8080/authentication/register', requestOptions)
             .then((response) => response.text())
             .then((response) => {
-                response === "Success!" ? navigate('/login') : alert(response)
+                if (response === "Success!") {
+                    navigate('/create-profile')
+                } else {
+                    alert(response)
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
+  
     };
 
     return (

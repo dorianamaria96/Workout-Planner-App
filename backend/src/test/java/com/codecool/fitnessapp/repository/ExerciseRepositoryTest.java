@@ -18,7 +18,7 @@ class ExerciseRepositoryTest {
     @Autowired
     ExerciseRepository exerciseRepository;
 
-    Exercise exercise = new Exercise("Exercise", "Description", Set.of());
+    Exercise exercise = new Exercise();
 
     @BeforeEach
     void before() {

@@ -55,7 +55,6 @@ export default function LoginForm() {
             .catch((err) => {
                 console.error(err);
             });
-
     };
 
     function fetchUsername(token: string) {
@@ -100,7 +99,6 @@ return (
                             onChange={handleChange}
                             required />
                     </div>
-                    {/* <div className="pass-link"><a href="#">Forgot password?</a></div> */}
                     <div className="field btn">
                         <div className="btn-layer"></div>
                         <input type="submit" value="Login" />

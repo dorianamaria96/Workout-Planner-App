@@ -62,7 +62,6 @@
 .form-inner form .field input:focus {
     border-color: #EA5B57;
     color: #000;
-    /* box-shadow: inset 0 0 3px #fb6aae; */
 }
 
 .form-inner form .field input::placeholder {
@@ -81,6 +80,7 @@ form .field input:focus::placeholder {
 .form-inner form .signup-link {
     text-align: center;
     margin-top: 30px;
+    color:rgb(161, 157, 157);
 }
 
 .form-inner form .pass-link a,
@@ -130,4 +130,37 @@ form .btn input[type="submit"] {
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.goal-title {
+    color:rgb(31, 31, 31);
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.goal-holder {
+    margin: 20px;
+}
+
+.goal {
+    color:rgb(103, 88, 88);
+    padding: 10px;
+}
+
+.profile-label {
+    padding: 10px 10px 10px 0;
+    color: #200B1D;
+    
+}
+
+.profile-input {
+    padding: 10px;
+    color: #200B1D;
+    font-size: 15px;
+    border-radius: 15px;
+}
+
+.details {
+    margin: 20px;
 }

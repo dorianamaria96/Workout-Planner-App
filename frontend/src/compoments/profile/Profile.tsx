@@ -1,5 +1,16 @@
 import { useEffect, useState, ChangeEvent } from "react";
 import './styles.css'
+import ProfileInformation from "./ProfileInformation";
+
+
+interface Profile {
+
+}
+
+interface Goal {
+    goals: string[]
+}
+
 
 export default function Profile() {
 
@@ -30,6 +41,20 @@ export default function Profile() {
                 if (data) {
                     retrieveImage()
                 }
+            })
+            .catch(error => console.log(error))
+
+        fetch('http://localhost:8080/profile/user-profile', reguestOptionsGet)
+            .then(data => data.json())
+            .then(data => {
+                console.log("DATA ", data)
+            })
+            .catch(error => console.log(error))
+
+        fetch('http://localhost:8080/profile/goals', reguestOptionsGet)
+            .then(data => data.json())
+            .then(data => {
+                console.log("GOALS ", data)
             })
             .catch(error => console.log(error))
     }, [])
@@ -81,26 +106,46 @@ export default function Profile() {
             .catch(error => error)
     }
 
-
+    const profile = {
+        firstname: "Doriana",
+        lastname: "Maria",
+        weight: "50",
+        height: "1.50",
+        goal: "Gain Weight"
+    }
 
     return (
         <div className="profile">
-            
-            <div className="profile-title">Profile Page</div>
 
-            <>
-                {
-                    imageExists
-                    ? 
-                    <div className="profile-image" style={{backgroundImage: `url(data:${image.fileType};base64,${image.data})`}}></div>
-                    :
-                    <div className="profile-image" style={{backgroundImage: `url("/media/Portrait_Placeholder.png")`}}></div>
-                }
-            </>
+            <div className="profile-title">PROFILE</div>
+            <div className="profile-holder">
+                <div className="left-profile-section">
+                    <>
+                        {
+                            imageExists
+                                ?
+                                <div className="profile-image" style={{ backgroundImage: `url(data:${image.fileType};base64,${image.data})` }}></div>
+                                :
+                                <div className="profile-image" style={{ backgroundImage: `url("/media/Portrait_Placeholder.png")` }}></div>
+                        }
+                    </>
 
-            <input type="file" multiple accept="image/*" onChange={handleImageUpload} />
+                    <input type="file" multiple accept="image/*" onChange={handleImageUpload} />
 
-            <button className="upload-button button-hero" onClick={uploadImage}>Upload</button>
+                    <button className="upload-button button-hero" onClick={uploadImage}>Upload</button>
+
+
+
+                </div>
+
+                <div className="right-profile-section">
+                    <ProfileInformation profile={profile}/>
+
+                </div>
+
+
+            </div>
+
 
         </div>
     );

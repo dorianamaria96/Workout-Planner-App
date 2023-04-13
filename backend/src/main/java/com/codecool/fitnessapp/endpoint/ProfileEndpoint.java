@@ -1,6 +1,7 @@
 package com.codecool.fitnessapp.endpoint;
 
 import com.codecool.fitnessapp.entity.Image;
+import com.codecool.fitnessapp.entity.Profile;
 import com.codecool.fitnessapp.entity.user.User;
 import com.codecool.fitnessapp.repository.UserRepository;
 import com.codecool.fitnessapp.service.ImageService;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/profile")
@@ -44,5 +46,15 @@ public class ProfileEndpoint {
     @GetMapping("/image/find-if-exists")
     public boolean checkIfImageExists() {
         return imageService.checkIfImageExists();
+    }
+
+    @GetMapping("/user-profile")
+    public Profile getProfileForLoggedInUser() {
+        return profileService.getProfileForLoggedInUser();
+    }
+
+    @GetMapping("/goals")
+    public List<String> getAllGoals () {
+        return profileService.getAllGoals();
     }
 }
